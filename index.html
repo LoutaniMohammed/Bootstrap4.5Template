@@ -17,5 +17,30 @@
     </ul>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        window.addEventListener('offline', function(event){
+            let data = {
+                0 : {
+                    name: 'mohammed',
+                    email : 'momo@mo.mo'
+                },
+                1 : {
+                    name: 'zaki',
+                    email : 'zozo@zo.zo'
+                } 
+            };
+
+            localStorage.setItem('dataOfflineStatus', JSON.stringify(data));
+            alert('You are in offline mode');
+        });
+
+        window.addEventListener('online', function(event){
+            let data = localStorage.getItem('dataOfflineStatus');
+            console.log(JSON.parse(data));
+            localStorage.clear();
+            alert('You are in online mode');
+        });
+
+    </script>
 </body>
 </html>
